@@ -9,17 +9,23 @@
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
     <button onclick="handleclick()">Click here</button>
+    <button onclick="greet()">Greet</button>
     <div id="message"></div>
     <script>
       const date = new Date();
       const date_adder = document.getElementById("time");
       const message=document.getElementById('message');
+
+      
       const count=0;
       handleclick=()=>{
       count++;
       message.innerHTML=`<h3>The button has been clicked ${count} times</h3>`;
       }
-
+      
+      function greet(){
+        message.innerHTML=`<h2>Hello world</h2>`;
+      }
       window.onload = () => {
         date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
       };
