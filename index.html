@@ -8,13 +8,18 @@
   <body>
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
+    <div id="message"></div>
+    <button onclick="greet()"></button>
     <script>
       const date = new Date();
       const date_adder = document.getElementById("time");
-
+      const message=document.getElementById('message');
       window.onload = () => {
         date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
       };
+      function greet(){
+        message.innerHTML=`<h3>Hello user</h3>`;
+      }
     </script>
   </body>
 </html>
