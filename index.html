@@ -3,17 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Interactive Time Page</title>
   </head>
   <body>
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
+    <div id="greeting"></div>
+    
     <script>
-      const date = new Date();
-      const date_adder = document.getElementById("time");
+     
+      function updateTime() {
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString();
+        document.getElementById("time").innerHTML = `<h3>Current Time: ${formattedTime}</h3>`;
+      }
 
+   
+      function generateGreeting() {
+        const now = new Date();
+        const hour = now.getHours();
+        let greeting;
+
+        if (hour < 12) {
+          greeting = "Good Morning!";
+        } else if (hour < 18) {
+          greeting = "Good Afternoon!";
+        } else {
+          greeting = "Good Evening!";
+        }
+
+        document.getElementById("greeting").innerHTML = `<h3>${greeting}</h3>`;
+      }
+
+     
       window.onload = () => {
-        date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
+        updateTime(); 
+        generateGreeting(); 
+        setInterval(updateTime, 1000); 
       };
     </script>
   </body>
