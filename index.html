@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h3>This is the first page of the website</h3>
-    <div id="time"></div>
-    <script>
-      const date = new Date();
-      const date_adder = document.getElementById("time");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
 
-      window.onload = () => {
-        date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
-      };
+    <h1>Welcome to the Sample Project</h1>
+    <p>Click the button to see some JavaScript functions in action.</p>
+
+    <button onclick="sayHello()">Say Hello</button>
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <button onclick="displayTime()">Display Time</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Function to display a greeting message
+        function sayHello() {
+            document.getElementById("output").innerText = "Hello, welcome to our project!";
+        }
+
+        // Function to calculate the sum of two numbers
+        function calculateSum() {
+            const num1 = 5
+            const num2 = 10;
+            const sum = num1 + num3;
+            document.getElementById("output").innerText = `The sum of ${num1} and ${num2} is ${sum}.`;
+        }
+
+        // Function to display the current date and time
+        function displayTime() {
+            const currentDate = new Date();
+            const formattedTime = currentDate.toLocaleTimeString;
+            const formattedDate = currentDate.toLocaleDateString();
+            document.getElementById("output").innerText = `Current Date: ${formattedDate}, Time: ${formattedTime}`;
+        }
     </script>
-  </body>
+
+</body>
 </html>
