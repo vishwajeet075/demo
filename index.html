@@ -8,13 +8,37 @@
   <body>
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
+
+  
+    <h3>Simple Calculator</h3>
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1" />
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2" />
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <div id="result"></div>
+
     <script>
       const date = new Date();
       const date_adder = document.getElementById("time");
 
+     
       window.onload = () => {
         date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
       };
+
+    
+      function calculateSum() {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        
+        if (isNaN(num1) || isNaN(num2)) {
+          document.getElementById("result").innerHTML = "Please enter valid numbers.";
+        } else {
+          const sum = num1 + num2;
+          document.getElementById("result").innerHTML = `<h3>Sum: ${sum}</h3>`;
+        }
+      }
     </script>
   </body>
 </html>
