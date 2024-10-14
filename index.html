@@ -8,9 +8,22 @@
   <body>
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
+    <button onclick="handleclick()">Click here</button>
+    <button onclick="handlesecondclick()">click here</button>
+    <div id="message"></div>
     <script>
       const date = new Date();
       const date_adder = document.getElementById("time");
+      const message=document.getElementById('message');
+      const count=0;
+      handleclick=()=>{
+      count++;
+      message.innerHTML=`<h3>The button has been clicked ${count} times</h3><br>
+      You have clicked the button so many times now stop the fuck now.`;
+      }
+      handlesecondclick=()=>{
+        console.log("thse second button is clicked");
+      }
 
       window.onload = () => {
         date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
