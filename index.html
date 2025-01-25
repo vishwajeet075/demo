@@ -8,12 +8,49 @@
   <body>
     <h3>This is the first page of the website</h3>
     <div id="time"></div>
+    <div id="greeting"></div>
+    <div id="date"></div>
     <script>
-      const date = new Date();
       const date_adder = document.getElementById("time");
+      const greeting_adder = document.getElementById("greeting");
+      const date_display = document.getElementById("date");
 
+      // Function to display the current time dynamically
+      function updateTime() {
+        const date = new Date();
+        date_adder.innerHTML = `<h3>Time is: ${date.toLocaleTimeString()}</h3>`;
+      }
+
+      // Function to display a greeting based on the time of day
+      function displayGreeting() {
+        const hours = new Date().getHours();
+        let greeting = "Hello!";
+
+        if (hours < 12) {
+          greeting = "Good Morning!";
+        } else if (hours < 18) {
+          greeting = "Good Afternoon!";
+        } else {
+          greeting = "Good Evening!";
+        }
+
+        greeting_adder.innerHTML = `<h3>${greeting}</h3>`;
+      }
+
+      // Function to display the current date
+      function displayDate() {
+        const date = new Date();
+        const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+        const formattedDate = date.toLocaleDateString(undefined, options);
+        date_display.innerHTML = `<h3>Today's Date: ${formattedDate}</h3>`;
+      }
+
+      // Initialize functions on page load
       window.onload = () => {
-        date_adder.innerHTML = `<h3>Time is: ${date}</h3>`;
+        displayGreeting();
+        displayDate();
+        updateTime();
+        setInterval(updateTime, 1000); // Update the time every second
       };
     </script>
   </body>
